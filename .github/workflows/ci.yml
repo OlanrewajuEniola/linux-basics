@@ -1,0 +1,25 @@
+name: Linux Basics CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show repository structure
+        run: |
+          pwd
+          ls -la
+
+      - name: Run a simple shell check
+        run: |
+          echo "CI pipeline is running"
+          bash --version
+
