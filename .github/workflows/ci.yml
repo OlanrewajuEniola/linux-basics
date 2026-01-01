@@ -37,3 +37,8 @@ jobs:
         env:
           SECRET_VALUE: ${{ secrets.DEMO_SECRET }}
 
+      - name: Run repo script
+        run: |
+          chmod +x scripts/hello.sh
+          ./scripts/hello.sh
+
