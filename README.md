@@ -28,3 +28,4 @@ Example:
 chmod +x scripts/hello.sh
 ./scripts/hello.sh
 
+# ci refresh
