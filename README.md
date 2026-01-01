@@ -1,3 +1,5 @@
+[![Linux Basics CI](https://github.com/OlanrewajuEniola/linux-basics/actions/workflows/ci.yml/badge.svg)] (https://github.com/OlanrewajuEniola/linux-basics/actions/workflows/ci.yml)
+
 # Linux Basics — DevOps Training
 
 This repository contains my hands-on Linux and Bash training as part of a structured DevOps roadmap.
