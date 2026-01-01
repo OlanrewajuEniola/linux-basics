@@ -9,6 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+ env:
+      APP_NAME: linux-basics
+      ENVIRONMENT: ci
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -18,8 +22,7 @@ jobs:
           pwd
           ls -la
 
-      - name: Run a simple shell check
-        run: |
-          echo "CI pipeline is running"
+       - name: Run a simple shell check
+         run: |
+          echo "CI pipeline is running for $APP_NAME in $ENVIRONMENT"
           bash --version
-
