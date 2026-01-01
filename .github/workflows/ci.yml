@@ -28,6 +28,7 @@ jobs:
 
        - name: Demonstrate secret usage
          run: |
-           echo "Secret is configured (value hidden)"
+          echo "Secret is configured (value hidden)"
          env:
-           SECRET_VALUE: ${{ secrets.DEMO_SECRET }}
+          SECRET_VALUE: ${{ secrets.DEMO_SECRET }}
+
