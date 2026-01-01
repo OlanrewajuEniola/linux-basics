@@ -1,3 +1,4 @@
+cat > .github/workflows/ci.yml <<'YAML'
 name: Linux Basics CI
 
 on:
@@ -26,9 +27,10 @@ jobs:
           echo "CI pipeline is running for $APP_NAME in $ENVIRONMENT"
           bash --version
 
-       - name: Demonstrate secret usage
-         run: |
+      - name: Demonstrate secret usage
+        run: |
           echo "Secret is configured (value hidden)"
-         env:
+        env:
           SECRET_VALUE: ${{ secrets.DEMO_SECRET }}
+YAML
 
