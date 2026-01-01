@@ -21,7 +21,8 @@ jobs:
           pwd
           ls -la
 
-       - name: Run a simple shell check
-         run: |
+      - name: Run a simple shell check
+        run: |
           echo "CI pipeline is running for $APP_NAME in $ENVIRONMENT"
           bash --version
+
