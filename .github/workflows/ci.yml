@@ -26,3 +26,8 @@ jobs:
           echo "CI pipeline is running for $APP_NAME in $ENVIRONMENT"
           bash --version
 
+       - name: Demonstrate secret usage
+         run: |
+           echo "Secret is configured (value hidden)"
+         env:
+           SECRET_VALUE: ${{ secrets.DEMO_SECRET }}
