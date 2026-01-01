@@ -37,8 +37,11 @@ jobs:
         env:
           SECRET_VALUE: ${{ secrets.DEMO_SECRET }}
 
-      - name: Run repo script
+      - name: Run repo script (if present)
         run: |
-          chmod +x scripts/hello.sh
-          ./scripts/hello.sh
-
+          if [ -f scripts/hello.sh ]; then
+            chmod +x scripts/hello.sh
+            ./scripts/hello.sh
+          else
+            echo "scripts/hello.sh not found - skipping"
+          fi
