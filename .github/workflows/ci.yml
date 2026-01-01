@@ -45,3 +45,11 @@ jobs:
           else
             echo "scripts/hello.sh not found - skipping"
           fi
+
+      - name: Show current date and file count
+        run: |
+          echo "Today is:"
+          date
+          echo "Number of files in repo:"
+          find . -type f | wc -l
+
