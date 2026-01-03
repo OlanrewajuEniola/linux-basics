@@ -54,3 +54,8 @@ jobs:
           echo "Number of files in repo:"
           find . -type f | wc -l
 
+      - name: Run a script
+        run: |
+          echo "CI pipeline is running"
+          exit 1
+
