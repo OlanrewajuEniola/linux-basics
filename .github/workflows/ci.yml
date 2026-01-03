@@ -57,5 +57,3 @@ jobs:
       - name: Run a script
         run: |
           echo "CI pipeline is running successfully"
-
-      - name: Intentional failure
