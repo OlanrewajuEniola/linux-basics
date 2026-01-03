@@ -1,6 +1,8 @@
 [![Linux Basics CI](https://github.com/OlanrewajuEniola/linux-basics/actions/workflows/ci.yml/badge.svg)] (https://github.com/OlanrewajuEniola/linux-basics/actions/workflows/ci.yml)
 
-# Linux Basics — DevOps Training
+## Linux Basics — DevOps Training ##
+
+ CI is enforced via GitHub Actions and required before merging to main.
 
  CI is enforced via GitHub Actions and required before merging to main.
 
