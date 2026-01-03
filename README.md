@@ -2,6 +2,8 @@
 
 # Linux Basics — DevOps Training
 
+ CI is enforced via GitHub Actions and required before merging to main.
+
 This repository contains my hands-on Linux and Bash training as part of a structured DevOps roadmap.
 
 The focus is on practical command-line usage, scripting, permissions, filesystem operations, and documentation discipline.
