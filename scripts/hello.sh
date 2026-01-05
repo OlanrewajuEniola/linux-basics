@@ -1,1 +1,4 @@
-echo "My first script ran successfully"
+#!/bin/bash
+
+name="$1"
+echo "Hello $name"
