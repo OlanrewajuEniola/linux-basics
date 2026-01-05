@@ -25,7 +25,7 @@ The focus is on practical command-line usage, scripting, permissions, filesystem
 - Organised files into a reproducible repo structure
 - Documented learnings in Markdown
 
-## How to Run
+## How to Run ##
 
 Example:
 ```bash
