@@ -1,14 +1,16 @@
 name: Linux Basics CI
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
-    
+    branches: ["main"]
+
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
+
     env:
       APP_NAME: linux-basics
       ENVIRONMENT: ci
@@ -18,48 +20,36 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install ShellCheck
-        run: sudo apt-get update && sudo apt-get install -y shellcheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
 
-      - name: Run ShellCheck
-        run: shellcheck scripts/*.sh
+      - name: Lint shell scripts with ShellCheck
+        run: |
+          if ls scripts/*.sh >/dev/null 2>&1; then
+            shellcheck scripts/*.sh
+          else
+            echo "No shell scripts found in scripts/ — skipping ShellCheck"
+          fi
 
       - name: Show repository structure
         run: |
+          echo "Working directory:"
           pwd
+          echo "Repository contents:"
           ls -la
 
-      - name: Run a simple shell check
-        run: |
-          echo "CI pipeline is running for $APP_NAME in $ENVIRONMENT"
-          bash --version
-
-      - name: Intentional failure (learning exercise)
-        run: |
-          echo "About to fail on purpose"
-          exit 0
-
-      - name: Demonstrate secret usage
-        run: |
-          echo "Secret is configured (value hidden)"
-        env:
-          SECRET_VALUE: ${{ secrets.DEMO_SECRET }}
-
-      - name: Run repo script (if present)
+      - name: Run repository script (if present)
         run: |
           if [ -f scripts/hello.sh ]; then
             chmod +x scripts/hello.sh
             ./scripts/hello.sh
           else
-            echo "scripts/hello.sh not found - skipping"
+            echo "scripts/hello.sh not found — skipping execution"
           fi
 
-      - name: Show current date and file count
+      - name: CI summary
         run: |
-          echo "Today is:"
-          date
-          echo "Number of files in repo:"
-          find . -type f | wc -l
+          echo "CI completed successfully for $APP_NAME"
+          echo "Environment: $ENVIRONMENT"
 
-      - name: Run a script
-        run: |
-          echo "CI pipeline is a success"
