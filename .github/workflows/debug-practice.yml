@@ -1,0 +1,19 @@
+name: Debugging Practice
+
+on: push
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Run a script that works
+        run: echo "This step is fine."
+
+      - name: The Broken Step
+        run: |
+          echo "I am about to crash..."
+          cat non_existent_file.txt
+          echo "I will never reach this line."
