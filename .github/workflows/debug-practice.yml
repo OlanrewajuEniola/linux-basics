@@ -15,5 +15,5 @@ jobs:
       - name: The Broken Step
         run: |
           echo "I am about to crash..."
-	  echo "Now I am fixed!"          
+          echo "Now I am fixed!"          
           echo "I will never reach this line."
