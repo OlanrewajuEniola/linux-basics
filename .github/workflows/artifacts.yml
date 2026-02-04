@@ -1,0 +1,24 @@
+name: Artifact Practice
+
+on: push
+
+
+jobs:
+ build-job:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout Code
+       uses: actions/checkout@v3
+
+     - name: Simulate a Build
+       run: |
+         mkdir build_output
+         echo "This is the compiled app v1.0" > build_output/app.bin
+         date >> build_output/app.bin
+         echo "Build complete."
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: binary-app # The name of the zip file
+          path: build_output/ # The folder to upload
