@@ -22,3 +22,4 @@ jobs:
         with:
           name: binary-app # The name of the zip file
           path: build_output/ # The folder to upload
+# Triggering artifact build
