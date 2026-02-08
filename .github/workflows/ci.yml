@@ -20,3 +20,9 @@ jobs:
         with:
           name: build-output
           path: build/
+
+      - name: Use secret safely
+        run: echo "Secret is configured"
+        env:
+          DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+ 
