@@ -9,5 +9,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run a command
-        run: echo "CI pipeline running"
+      - name: Create build output
+        run: |
+          mkdir -p build
+          echo "Build output from CI run $(date)" > build/app.txt
+          ls -la build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: build/
