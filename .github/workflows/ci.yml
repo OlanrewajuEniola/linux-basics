@@ -28,4 +28,58 @@ jobs:
         run: echo "Secret is configured"
         env:
           DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+
+  deploy_dev:
+    name: Deploy to Dev (simulate)
+    runs-on: ubuntu-latest
+    needs: build
+    environment: dev
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: deployed/
+
+      - name: Verify deployed content (Dev)
+        run: |
+          echo "=== DEV ==="
+          ls -la deployed
+          cat deployed/app.txt
+
+  deploy_staging:
+    name: Promote to Staging (simulate)
+    runs-on: ubuntu-latest
+    needs: deploy_dev
+    environment: staging
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: deployed/
+
+      - name: Verify deployed content (Staging)
+        run: |
+          echo "=== STAGING ==="
+          ls -la deployed
+          cat deployed/app.txt
+
+  deploy_prod:
+    name: Promote to Prod (approval)
+    runs-on: ubuntu-latest
+    needs: deploy_staging
+    environment: prod
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: deployed/
+
+      - name: Verify deployed content (Prod)
+        run: |
+          echo "=== PROD ==="
+          ls -la deployed
+          cat deployed/app.txt
  
